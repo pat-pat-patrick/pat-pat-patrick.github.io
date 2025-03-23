@@ -2,7 +2,7 @@
 # General Site Settings
 title: Patrick
 logo: logo.svg # You can add own logo.
-description: Zolan is modern minimal theme for Jekyll
+description: A Personal Page
 
 
 #-------------------------------
@@ -30,8 +30,8 @@ disqus-identifier: mr-brown # add your shortname for Disqus Comment. For example
 
 #-------------------------------
 # Instagram Feed
-instafeed: # To enable the instafeed, use the value true. To turn off use the value false.
-instagram-profile: artemsheludko_ # Add instagram username
+instafeed: true # To enable the instafeed, use the value true. To turn off use the value false.
+instagram-profile: patrickhesieh # Add instagram username
 
 
 #-------------------------------
