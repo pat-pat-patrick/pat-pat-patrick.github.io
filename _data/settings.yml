@@ -1,6 +1,6 @@
 #-------------------------------
 # General Site Settings
-title: Zolan
+title: Patrick
 logo: logo.svg # You can add own logo.
 description: Zolan is modern minimal theme for Jekyll
 
@@ -11,7 +11,7 @@ author:
   name: Patrick Xie
   image: 01.jpg
   say-hello: Hello, I’m <strong>Patrick Xie</strong>
-  bio: Physician by training, coder by passion, cancer researcher by dedication, and healthcare investor by vision. Loves <a href="#">music</a> & cooking.
+  bio: Physician by training, coder by passion, cancer researcher by dedication, and healthcare investor by vision. Loves <a href="#">cooking</a>.
 
 
 #-------------------------------
