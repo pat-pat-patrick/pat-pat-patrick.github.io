@@ -3,7 +3,7 @@
   layout: post
   title: "AI in Pharmaceuticals: The Disruptive Innovation We've Been Waiting For?"
   date: 2025-03-30 16:52:00 +0300
-  image: AI in Pharmaceuticals The Disruptive Innovation We've Been Waiting For? Title.jpg
+  image: 0001.jpg
   tags: Investment
   ---
 ```
