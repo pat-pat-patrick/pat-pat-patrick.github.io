@@ -4,7 +4,7 @@ title: "AI in Pharmaceuticals: The Disruptive Innovation We've Been Waiting For?
 date: 2025-03-30 16:52:00 +0300
 image: 0001.jpg
 tags: Investment
-permalink: /2025/03/30/AI-in-Pharmaceutical,-Is-It-Disruptive-Innovation-We-Expect/
+permalink: /2025/03/30/AI-in-Pharmaceutical-Is-It-Disruptive-Innovation-We-Expect/
 ---
 
 # AI in Pharmaceuticals: The Disruptive Innovation We've Been Waiting For?
