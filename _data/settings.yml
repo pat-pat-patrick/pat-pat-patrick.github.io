@@ -11,7 +11,7 @@ author:
   name: Patrick Xie
   image: 02.jpg
   say-hello: Hello, I’m <strong>Patrick Xie</strong>
-  bio: Physician by training, coder by passion, cancer researcher by dedication, and healthcare investor by vision. Loves <a href="#">cooking</a>. I don’t dress up for occasions. I dress like every day is worth it.
+  bio: Physician by training, coder by passion, cancer researcher by dedication, and healthcare investor by vision. Loves <a href="#">cooking</a>. <br>I don’t dress up for occasions. I dress like every day is worth it.
 
 
 #-------------------------------
