@@ -11,7 +11,7 @@ Gödel's incompleteness theorems, located at the crossroads of philosophy and ma
 In 1931, Kurt Gödel proposed two key theorems:
 
 1. Any sufficiently complicated formal system capable of expressing fundamental arithmetic will always contain claims that cannot be proven true or incorrect within the system itself (First Incompleteness Theorem).
-2. A system cannot prove its own consistency from within (the Second Incompleteness Theorem).
+2. A system cannot prove its own consistency from within (Second Incompleteness Theorem).
 
 
 This means that a self-consistent system is fundamentally incapable of demonstrating all truths or validating its own validity from within.
@@ -53,4 +53,4 @@ Gödel shattered the myth of formal systems with formal logic. In ethics, we mus
 
 ### Acknowledgement
 
-This article was inspired by *Gödel, Escher, Bach: An Eternal Golden Braid* by Douglas Hofstadter, as well as a conversation with Jeremy on absolute and relative morality at church on May 10.
+This article was inspired by *Gödel, Escher, Bach: An Eternal Golden Braid* by Douglas Hofstadter, as well as a conversation with Jeremy Bleakley on absolute and relative morality at church on May 10.
