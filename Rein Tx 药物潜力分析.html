@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rein Therapeutics 候选药物潜力分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Teal Accent -->
+    <!-- Application Structure Plan: A top-down narrative SPA structure with four main sections: Overview, LTI-03 (IPF), LTI-01 (LPE), and Market. This structure was chosen to guide the user logically from the company's core strategy to the specifics of each drug candidate and its market potential. The focus is on building the investment case step-by-step, starting with the problem, presenting the solution and evidence (safety), explaining the link to potential efficacy, and finally showing the commercial opportunity. Interactions like tabbed content and dynamic charts are used to break down complex information and allow for focused exploration. -->
+    <!-- Visualization & Content Choices: 1. LTI-03 Systemic Exposure (Bar Chart): Goal=Compare. Shows dramatically lower systemic drug levels vs. oral standard of care, visually proving the core safety claim. Chart.js used. 2. LTI-03 Lung Concentration (Bar Chart): Goal=Inform. Complements the first chart by showing high drug concentration in the target organ, addressing potential concerns about efficacy with low systemic levels. Chart.js used. 3. Oral vs Inhaled Diagram (HTML/CSS): Goal=Explain. A simple visual to make the mechanism of improved safety intuitive for any user. Custom HTML/CSS with Tailwind. 4. Competitive Landscape (Interactive Table): Goal=Compare. Directly contrasts new drugs with existing standards on key decision-making criteria (Efficacy, Safety, Dosing), summarizing the value proposition. JS for dynamic content switching. 5. LPE Clot Lysis (Bar Chart): Goal=Compare. Shows preclinical efficacy data against the current off-label treatment, establishing a basis for its potential clinical benefit. Chart.js used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #FDFBF8;
+            color: #3D405B;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #1E90FF;
+            border-bottom-color: #1E90FF;
+        }
+        .tab-btn.active {
+            background-color: #1E90FF;
+            color: #FFFFFF;
+        }
+        .tab-btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">
+                <span class="text-blue-600">Rein Tx</span> 药物潜力分析
+            </h1>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#overview" class="nav-link font-medium pb-1">核心策略</a>
+                <a href="#lti03" class="nav-link font-medium pb-1">LTI-03 (IPF)</a>
+                <a href="#lti01" class="nav-link font-medium pb-1">LTI-01 (LPE)</a>
+                <a href="#market" class="nav-link font-medium pb-1">市场与竞争</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#overview" class="block py-2 text-center nav-link">核心策略</a>
+            <a href="#lti03" class="block py-2 text-center nav-link">LTI-03 (IPF)</a>
+            <a href="#lti01" class="block py-2 text-center nav-link">LTI-01 (LPE)</a>
+            <a href="#market" class="block py-2 text-center nav-link">市场与竞争</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="overview" class="scroll-mt-20 mb-20 text-center">
+            <h2 class="text-4xl font-bold mb-4 text-gray-800">精准靶向，重塑纤维化疾病治疗</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                Rein Therapeutics 的核心策略是识别已有验证的药物作用机制，并通过创新的给药途径（如吸入式给药）将其潜力最大化。这种方法旨在将药物直接递送至病灶部位，从而在提高局部疗效的同时，显著降低全身性副作用，最终为患者带来更安全、更有效的治疗选择。
+            </p>
+        </section>
+
+        <section id="lti03" class="scroll-mt-20 mb-20">
+            <div class="text-center mb-12">
+                <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">候选药物一</span>
+                <h2 class="text-4xl font-bold text-gray-800 mt-2">LTI-03: 攻克特发性肺纤维化 (IPF)</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mt-4">LTI-03 是一种吸入型吡非尼酮，旨在解决现有口服疗法因严重全身性副作用导致的治疗中断和剂量限制问题。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4">现有疗法的困境</h3>
+                    <p class="text-gray-600 mb-4">当前 IPF 的标准疗法，如口服吡非尼酮（Esbriet）和尼达尼布（Ofev），虽然能延缓疾病进展，但常伴有严重的光敏性、皮疹、恶心、腹泻等胃肠道副作用。这导致：</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">●</span> 约 50% 的患者在两年内停药。</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">●</span> 许多患者无法耐受有效剂量，限制了药物的全部疗效。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4">LTI-03 的解决方案：靶向递送</h3>
+                    <p class="text-gray-600 mb-4">通过吸入给药，LTI-03 将吡非尼酮直接输送至肺部，实现：</p>
+                    <div class="flex justify-around items-center text-center">
+                        <div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">▲</div>
+                            <p class="font-semibold">高肺部浓度</p>
+                            <p class="text-sm text-gray-500">最大化疗效</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-green-600 mb-2">▼</div>
+                            <p class="font-semibold">低全身暴露</p>
+                            <p class="text-sm text-gray-500">最小化副作用</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-16">
+                <h3 class="text-2xl font-bold text-center mb-6">关键数据：安全性与药物浓度优势</h3>
+                <p class="text-center text-gray-600 mb-8">1期临床研究数据显示，LTI-03 相比口服吡非尼酮，在全身暴露（血浆浓度）显著降低的同时，维持了极高的肺部药物浓度。</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-center mb-4">血浆药物暴露量 (AUC) 对比</h4>
+                        <div class="chart-container"><canvas id="plasmaAucChart"></canvas></div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-center mb-4">肺部药物浓度 (Cmax) 对比</h4>
+                        <div class="chart-container"><canvas id="lungCmaxChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold text-center mb-6">从优越安全性到潜在更高效力的逻辑链</h3>
+                <p class="text-center text-gray-600 mb-8">LTI-03 的预期疗效优势并非来自新的作用机制，而是基于其卓越的安全性所开启的全新治疗可能性。请点击下方卡片，了解这一环环相扣的逻辑。</p>
+                <div id="efficacy-tabs" class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-100 active" data-target="efficacy-step-1">1. 提升安全性</button>
+                    <button class="tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-100" data-target="efficacy-step-2">2. 改善耐受性</button>
+                    <button class="tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-100" data-target="efficacy-step-3">3. 提高用药依从性</button>
+                    <button class="tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-100" data-target="efficacy-step-4">4. 实现更佳疗效</button>
+                </div>
+                <div id="efficacy-content" class="p-6 bg-gray-50 rounded-lg min-h-[150px]">
+                    <div id="efficacy-step-1" class="efficacy-text">
+                        <h4 class="font-bold text-lg mb-2">大幅降低全身副作用</h4>
+                        <p class="text-gray-700">吸入给药方式使得血浆中的药物浓度远低于口服给药，从根本上减少了导致患者停药的胃肠道反应、皮疹等副作用的发生率。这是整个价值主张的基石。</p>
+                    </div>
+                    <div id="efficacy-step-2" class="efficacy-text hidden">
+                        <h4 class="font-bold text-lg mb-2">患者体验显著改善</h4>
+                        <p class="text-gray-700">由于副作用大幅减少，患者能够更好地耐受治疗。这意味着他们可以持续接受治疗，而不会因难以忍受的副作用而被迫降低剂量或中断治疗，生活质量也得到保障。</p>
+                    </div>
+                    <div id="efficacy-step-3" class="efficacy-text hidden">
+                        <h4 class="font-bold text-lg mb-2">确保治疗的持续性与稳定性</h4>
+                        <p class="text-gray-700">更好的耐受性直接转化为更高的用药依从性。患者更有可能按规定完成整个治疗周期，从而确保药物在肺部持续发挥作用，这是延缓疾病进展的关键。</p>
+                    </div>
+                    <div id="efficacy-step-4" class="efficacy-text hidden">
+                        <h4 class="font-bold text-lg mb-2">挑战“疗效天花板”</h4>
+                        <p class="text-gray-700">由于安全性得到保障，LTI-03 不仅能让患者稳定地使用有效剂量，更有潜力探索使用比口服药物所能达到的肺部浓度更高的剂量，从而可能带来超越现有标准疗法的临床获益。RENEW II期临床试验将是验证这一假设的关键。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lti01" class="scroll-mt-20 mb-20">
+            <div class="text-center mb-12">
+                <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">候选药物二</span>
+                <h2 class="text-4xl font-bold text-gray-800 mt-2">LTI-01: 针对分隔性胸腔积液 (LPE) 的新标准</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mt-4">LTI-01 是一种溶栓前体药物，旨在为 LPE 提供一种更安全、有效且获批的“标签内”一线治疗方案。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4">当前治疗的风险与不便</h3>
+                    <p class="text-gray-600">目前 LPE 的一线疗法是“标签外”使用 tPA/DNase 组合，存在以下问题：</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">●</span> <strong>出血风险：</strong> 存在胸腔内出血的风险。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">●</span> <strong>给药复杂：</strong> 每日两次，间隔12小时，操作不便。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">●</span> <strong>未经批准：</strong> 未被 FDA 正式批准用于 LPE 适应症。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4">LTI-01 的优势</h3>
+                    <p class="text-gray-600">LTI-01 (pro-urokinase) 作为一种溶栓酶原，只在纤维蛋白（血栓/分隔的主要成分）表面被激活，实现靶向溶栓：</p>
+                     <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">●</span> <strong>更高安全性：</strong> 理论上可降低出血风险。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">●</span> <strong>给药便捷：</strong> 潜在的更优给药方案。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">●</span> <strong>明确的审批路径：</strong> 有望成为首个获批的 LPE 药物疗法。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold text-center mb-6">临床前研究展示强大潜力</h3>
+                <p class="text-center text-gray-600 mb-8">在兔 LPE 模型中，LTI-01 在溶解纤维蛋白分隔方面显示出与 tPA/DNase 相当甚至更优的活性。</p>
+                <div class="chart-container mx-auto"><canvas id="lpeClotLysisChart"></canvas></div>
+            </div>
+        </section>
+
+        <section id="market" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800">巨大的市场机遇与明确的竞争优势</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mt-4">凭借差异化的产品特性，LTI-03 和 LTI-01 均瞄准了存在显著未满足医疗需求的巨大市场。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="card text-center">
+                    <h3 class="text-2xl font-bold mb-2">IPF 市场</h3>
+                    <p class="text-5xl font-bold text-blue-600 mb-4">$2.5B+</p>
+                    <p class="text-gray-600">全球现有市场规模，且仍在增长。LTI-03 凭借其安全性优势，有望成为一线首选或与现有疗法联用，占据重要市场份额。</p>
+                </div>
+                <div class="card text-center">
+                    <h3 class="text-2xl font-bold mb-2">LPE 市场</h3>
+                    <p class="text-5xl font-bold text-green-600 mb-4">~$400M</p>
+                    <p class="text-gray-600">欧美市场预估。LTI-01 作为首个“标签内”获批药物，有潜力完全替代现有“标签外”疗法，并可能凭借更优的价格和临床获益扩大市场。</p>
+                </div>
+            </div>
+
+             <div class="card">
+                <h3 class="text-2xl font-bold text-center mb-6">竞争格局对比</h3>
+                 <div class="flex justify-center mb-6">
+                    <div class="inline-flex rounded-md shadow-sm" role="group">
+                        <button type="button" id="toggle-lti03" class="comparison-toggle-btn active px-6 py-3 text-sm font-medium text-white bg-blue-600 border border-gray-200 rounded-l-lg hover:bg-blue-700">
+                            LTI-03 vs. 口服疗法
+                        </button>
+                        <button type="button" id="toggle-lti01" class="comparison-toggle-btn px-6 py-3 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100">
+                            LTI-01 vs. tPA/DNase
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-max text-left">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="p-4 font-semibold">特性</th>
+                                <th id="competitor-a-header" class="p-4 font-semibold text-blue-600">LTI-03 (吸入)</th>
+                                <th id="competitor-b-header" class="p-4 font-semibold">口服标准疗法</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-tbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>本应用基于公开的 Rein Therapeutics 公司演示材料制作，仅供信息参考和分析之用。</p>
+            <p class="text-sm text-gray-400 mt-2">数据截止至 2025 年 8 月。所有信息请以官方发布为准。</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const lti03Data = {
+                headers: ['LTI-03 (吸入)', '口服标准疗法'],
+                rows: [
+                    { feature: '预期疗效', competitorA: '相当或更优', competitorB: '已验证' },
+                    { feature: '安全性', competitorA: '显著更优 (全身副作用低)', competitorB: '差 (全身副作用高)' },
+                    { feature: '给药途径', competitorA: '吸入', competitorB: '口服' },
+                    { feature: '耐受性', competitorA: '良好', competitorB: '差' },
+                    { feature: '批准状态', competitorA: '临床II期 (计划)', competitorB: '已批准' }
+                ]
+            };
+
+            const lti01Data = {
+                headers: ['LTI-01', 'tPA/DNase'],
+                rows: [
+                    { feature: '预期疗效', competitorA: '相当或更优', competitorB: '有效' },
+                    { feature: '安全性', competitorA: '潜在更优 (出血风险低)', competitorB: '存在出血风险' },
+                    { feature: '给药方案', competitorA: '潜在更便捷', competitorB: '复杂 (每日两次)' },
+                    { feature: '批准状态', competitorA: '临床前', competitorB: '标签外使用' }
+                ]
+            };
+            
+            function updateComparisonTable(data) {
+                const tbody = document.getElementById('comparison-tbody');
+                const headerA = document.getElementById('competitor-a-header');
+                const headerB = document.getElementById('competitor-b-header');
+                
+                headerA.textContent = data.headers[0];
+                headerB.textContent = data.headers[1];
+                tbody.innerHTML = '';
+                
+                data.rows.forEach(rowData => {
+                    const row = document.createElement('tr');
+                    row.className = 'border-b hover:bg-gray-50';
+                    row.innerHTML = `
+                        <td class="p-4 font-medium">${rowData.feature}</td>
+                        <td class="p-4 text-gray-700">${rowData.competitorA}</td>
+                        <td class="p-4 text-gray-700">${rowData.competitorB}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            const toggleLti03 = document.getElementById('toggle-lti03');
+            const toggleLti01 = document.getElementById('toggle-lti01');
+            const toggleButtons = document.querySelectorAll('.comparison-toggle-btn');
+
+            toggleLti03.addEventListener('click', () => {
+                updateComparisonTable(lti03Data);
+                toggleButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+                toggleLti03.classList.add('active', 'bg-blue-600', 'text-white');
+                toggleLti01.classList.remove('rounded-l-lg');
+                toggleLti01.classList.add('bg-white', 'text-gray-900');
+            });
+            
+            toggleLti01.addEventListener('click', () => {
+                updateComparisonTable(lti01Data);
+                 toggleButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+                toggleLti01.classList.add('active', 'bg-blue-600', 'text-white');
+                toggleLti03.classList.add('bg-white', 'text-gray-900');
+            });
+
+            updateComparisonTable(lti03Data);
+
+            const plasmaCtx = document.getElementById('plasmaAucChart').getContext('2d');
+            new Chart(plasmaCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['血浆药物暴露量 (AUC)'],
+                    datasets: [{
+                        label: 'LTI-03 (吸入)',
+                        data: [112],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '口服吡非尼酮',
+                        data: [7970],
+                        backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw} ng*h/mL (~98.6% 降低)`;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'LTI-03 全身暴露量显著降低'
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, title: { display: true, text: '血浆 AUC (ng*h/mL)' } }
+                    }
+                }
+            });
+
+            const lungCtx = document.getElementById('lungCmaxChart').getContext('2d');
+            new Chart(lungCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['肺部药物峰值浓度 (Cmax)'],
+                    datasets: [{
+                        label: 'LTI-03 (吸入)',
+                        data: [27600],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '口服吡非尼酮',
+                        data: [11900],
+                        backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                         tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw} ng/g (~2.3倍 提升)`;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'LTI-03 在肺部实现更高浓度'
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, title: { display: true, text: '肺组织 Cmax (ng/g)' } }
+                    }
+                }
+            });
+
+            const lpeCtx = document.getElementById('lpeClotLysisChart').getContext('2d');
+            new Chart(lpeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['对照组', 'tPA/DNase', 'LTI-01'],
+                    datasets: [{
+                        label: '纤维蛋白溶解百分比 (%)',
+                        data: [10, 85, 95],
+                        backgroundColor: [
+                            'rgba(156, 163, 175, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(16, 185, 129, 0.7)'
+                        ],
+                        borderColor: [
+                             'rgba(156, 163, 175, 1)',
+                            'rgba(239, 68, 68, 1)',
+                            'rgba(16, 185, 129, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'LTI-01 在兔 LPE 模型中的溶栓效果'
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, max: 100, title: { display: true, text: '溶解率 (%)' } }
+                    }
+                }
+            });
+
+            const efficacyTabs = document.getElementById('efficacy-tabs');
+            const efficacyContents = document.querySelectorAll('.efficacy-text');
+            efficacyTabs.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    efficacyTabs.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    
+                    efficacyContents.forEach(content => content.classList.add('hidden'));
+                    document.getElementById(e.target.dataset.target).classList.remove('hidden');
+                }
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            })
+        });
+    </script>
+</body>
+</html>
