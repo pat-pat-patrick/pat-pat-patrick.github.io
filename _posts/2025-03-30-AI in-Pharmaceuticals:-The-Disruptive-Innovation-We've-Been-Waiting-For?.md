@@ -1,4 +1,6 @@
-# AI in Pharmaceuticals: The Disruptive Innovation We've Been Waiting For?
+---
+title: "AI in Pharmaceuticals: The Disruptive Innovation We’ve Been Waiting For?"
+---
 
 TLDR: This analysis concludes that AI in pharmaceuticals exhibits characteristics of a disruptive innovation, but not as we expect.
 
