@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beijing Economy Relax Travel Guide - April 15-22</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --secondary-green: #2D8B57;
+            --dark-charcoal: #2C2C2C;
+            --light-bg: #FAF8F6;
+            --card-bg: #FFFFFF;
+            --accent-gold: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-light: #E8E8E8;
+            --success-green: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-red) 0%, #A01729 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.03) 35px, rgba(255,255,255,0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255,255,255,0.02) 35px, rgba(255,255,255,0.02) 70px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge.featured {
+            background: var(--secondary-green);
+            border-color: transparent;
+            font-weight: 700;
+        }
+
+        /* CONTAINER & SECTIONS */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--primary-red);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        /* TRIP OVERVIEW */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, #FAFAFA 100%);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .overview-card-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .overview-card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+
+        .overview-card-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* HOTEL SECTION */
+        .hotel-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .hotel-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hotel-card:hover {
+            border-color: var(--primary-red);
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .hotel-rank {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-red);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .hotel-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            padding-right: 40px;
+        }
+
+        .hotel-star {
+            color: var(--primary-red);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .hotel-details {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .hotel-detail-item {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .hotel-detail-item::before {
+            content: '•';
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #A01729;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-green);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #1F5F3D;
+        }
+
+        .recommendation-badge {
+            background: linear-gradient(135deg, var(--secondary-green), #3DA968);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ITINERARY PHASES */
+        .phase-header {
+            background: linear-gradient(135deg, var(--primary-red), #A01729);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0 25px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .phase-2 .phase-header {
+            background: linear-gradient(135deg, var(--secondary-green), #1F5F3D);
+        }
+
+        /* DAY CARDS */
+        .day-cards {
+            display: grid;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .day-card {
+            background: var(--card-bg);
+            border-left: 5px solid var(--primary-red);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .phase-2 .day-card {
+            border-left-color: var(--secondary-green);
+        }
+
+        .day-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateX(4px);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, var(--primary-red), #D73F52);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .phase-2 .day-header {
+            background: linear-gradient(135deg, var(--secondary-green), #3DA968);
+        }
+
+        .day-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .day-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .day-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .day-content {
+            padding: 25px;
+        }
+
+        .time-section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .time-section:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .time-label {
+            font-weight: 700;
+            color: var(--primary-red);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phase-2 .time-label {
+            color: var(--secondary-green);
+        }
+
+        .activity {
+            margin-left: 20px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .activity strong {
+            color: var(--text-dark);
+        }
+
+        .activity-link {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .activity-link:hover {
+            text-decoration: underline;
+        }
+
+        /* PHOTOGRAPHY SECTION */
+        .photography-section {
+            background: linear-gradient(135deg, #F5E6E8, #F9F5F0);
+            border: 2px solid var(--primary-red);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .photography-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .photo-info-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .photo-info-card h4 {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .photo-list {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .photo-list li {
+            margin-bottom: 8px;
+        }
+
+        /* BUDGET SECTION */
+        .budget-section {
+            background: linear-gradient(135deg, #F0F8F4, #E8F5F0);
+            border: 2px solid var(--secondary-green);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .budget-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .budget-item-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .budget-item-amount {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--secondary-green);
+            margin-bottom: 5px;
+        }
+
+        .budget-item-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .budget-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .budget-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-green), #4CAF50);
+            transition: width 0.5s ease;
+        }
+
+        .budget-total {
+            background: linear-gradient(135deg, var(--secondary-green), #2D8B57);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .budget-total-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .budget-total-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        /* SPRING FEATURES */
+        .spring-section {
+            background: linear-gradient(135deg, #FFF5F1, #FFF0E6);
+            border: 2px dashed var(--primary-red);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-name {
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* MONEY SAVING TIPS */
+        .tips-section {
+            margin: 30px 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, var(--light-bg), #FFFFFF);
+            border: 2px solid var(--primary-red);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            border-color: var(--secondary-green);
+            box-shadow: 0 6px 16px rgba(45, 139, 87, 0.15);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .tip-title {
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 8px;
+        }
+
+        .tip-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ADJUSTMENT SUGGESTIONS */
+        .suggestions-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .suggestion-item {
+            background: linear-gradient(135deg, #F9F5F0, #F5F0EA);
+            padding: 18px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .suggestion-item h4 {
+            color: var(--primary-red);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .suggestion-item p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark-charcoal);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .currency-note {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px auto;
+            max-width: 500px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+            }
+
+            .badge {
+                width: 100%;
+            }
+
+            .hotel-cards,
+            .overview-grid,
+            .photography-grid,
+            .budget-grid,
+            .features-grid,
+            .tips-grid,
+            .suggestions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .day-header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .day-title {
+                flex-basis: 100%;
+                margin: 0;
+            }
+
+            .budget-total-amount {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .day-card {
+                page-break-inside: avoid;
+            }
+
+            .hotel-card,
+            .feature-card,
+            .tip-card {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: var(--primary-red);
+            }
+        }
+    
+/* PASSWORD LOCK SCREEN */
+#lock-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: 'Inter', sans-serif;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#lock-screen.unlocked {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+.lock-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+.lock-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+}
+.lock-title {
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+.lock-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+.lock-input-wrap {
+    position: relative;
+    margin-bottom: 20px;
+}
+.lock-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+}
+.lock-input::placeholder { color: rgba(255,255,255,0.3); letter-spacing: 0; }
+.lock-input:focus { border-color: #C41E3A; }
+.lock-input.shake {
+    animation: shake 0.5s ease;
+    border-color: #e74c3c;
+}
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%,60% { transform: translateX(-8px); }
+    40%,80% { transform: translateX(8px); }
+}
+.lock-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #C41E3A, #a01830);
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.lock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(196,30,58,0.4);
+}
+.lock-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    min-height: 1.2em;
+}
+#main-content { display: none; }
+#main-content.visible { display: block; }
+</style>
+</head>
+<body>
+<div id="lock-screen">
+    <div class="lock-card">
+        <span class="lock-icon">🔒</span>
+        <div class="lock-title">Private Travel Guide</div>
+        <div class="lock-subtitle">Enter password to view this itinerary</div>
+        <form id="lock-form">
+            <div class="lock-input-wrap">
+                <input type="password" class="lock-input" id="password-input" placeholder="Enter password..." autofocus autocomplete="off">
+            </div>
+            <button type="submit" class="lock-btn">Unlock →</button>
+            <div class="lock-error" id="lock-error"></div>
+        </form>
+    </div>
+</div>
+
+<div id="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Beijing Economy Relax Travel</h1>
+            <p class="hero-subtitle">April 15-22 • Professional Photography • Spring Flower Season</p>
+            <div class="hero-badges">
+                <span class="badge">8 Days & 7 Nights</span>
+                <span class="badge featured">Budget 738-864 CHF</span>
+                <span class="badge">Couples & Relaxed Pace</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- TRIP OVERVIEW -->
+        <section>
+            <h2 class="section-title">Trip Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-card-label">📅 Duration</div>
+                    <div class="overview-card-value">8 Days</div>
+                    <div class="overview-card-desc">April 15-22, 7 nights accommodation</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-label">💰 Total Budget</div>
+                    <div class="overview-card-value">738-864 CHF</div>
+                    <div class="overview-card-desc">For two people, all-inclusive</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-label">🏨 Hotel Nightly</div>
+                    <div class="overview-card-value">36 CHF</div>
+                    <div class="overview-card-desc">Under 300 CNY per night</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-label">🎯 Best For</div>
+                    <div class="overview-card-value">Couples</div>
+                    <div class="overview-card-desc">Relaxed pace with professional shots</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOTEL SELECTION -->
+        <section>
+            <h2 class="section-title">Hotel Selection</h2>
+            <p class="section-subtitle">Budget-friendly options under 300 CNY/night (≈ 36 CHF/night)</p>
+
+            <div class="hotel-cards">
+                <div class="hotel-card">
+                    <div class="hotel-rank">1</div>
+                    <div class="hotel-name">Home Inn·neo-Beijing Shichahai Gulou Jiaodaokou Store</div>
+                    <div class="hotel-star">⭐⭐ 2-Star | Excellent Location</div>
+                    <div class="hotel-details">
+                        <div class="hotel-detail-item">Near Shichahai & Nanluoguxiang</div>
+                        <div class="hotel-detail-item">Convenient transportation</div>
+                        <div class="hotel-detail-item">Safe neighborhood</div>
+                    </div>
+                    <a href="https://a.feizhu.com/0TD4gy" class="btn btn-primary">Book Now</a>
+                    <div class="recommendation-badge">✓ Recommended</div>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-rank">2</div>
+                    <div class="hotel-name">7 Days Premium·Beijing Dongsi Nanluoguxiang Store</div>
+                    <div class="hotel-star">⭐⭐ 2-Star | Hutong Area</div>
+                    <div class="hotel-details">
+                        <div class="hotel-detail-item">Near Nanluoguxiang</div>
+                        <div class="hotel-detail-item">Unique authentic atmosphere</div>
+                        <div class="hotel-detail-item">Economical & practical</div>
+                    </div>
+                    <a href="https://a.feizhu.com/1pnlaz" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-rank">3</div>
+                    <div class="hotel-name">GreenTree Inn Select Hotel (Beijing Xicheng District Dashilan Store)</div>
+                    <div class="hotel-star">⭐⭐ 2-Star | Near Qianmen</div>
+                    <div class="hotel-details">
+                        <div class="hotel-detail-item">Close to Qianmen Street</div>
+                        <div class="hotel-detail-item">Near Tiananmen Square</div>
+                        <div class="hotel-detail-item">Chain brand, safety guaranteed</div>
+                    </div>
+                    <a href="https://a.feizhu.com/1sMtib" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHASE 1: FIANCÉE SOLO TRAVEL -->
+        <section class="phase-1">
+            <div class="phase-header">🌸 Phase 1: Fiancée Solo Travel (April 15-17)</div>
+
+            <div class="day-cards">
+                <!-- DAY 1 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 1</span>
+                        <span class="day-title">Arrival and Rest</span>
+                        <span class="day-date">April 15</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌤️ Afternoon</div>
+                            <div class="activity">Arrive in Beijing (EY888 flight)</div>
+                            <div class="activity">Transportation: Airport bus or subway to hotel</div>
+                            <div class="activity">Check into selected budget hotel</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌙 Evening</div>
+                            <div class="activity">Simple dinner near hotel</div>
+                            <div class="activity">Early rest to adapt to local time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 2 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 2</span>
+                        <span class="day-title">Safe Leisure Day</span>
+                        <span class="day-date">April 16</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌅 Morning</div>
+                            <div class="activity">Hotel rest, adapt to environment</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon</div>
+                            <div class="activity"><strong>Wangfujing Pedestrian Street</strong> - Shopping and lunch in mall</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🏛️ Afternoon</div>
+                            <div class="activity"><strong>National Museum of China</strong> - Free, indoor, safe environment</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌙 Evening</div>
+                            <div class="activity">Return to hotel to rest</div>
+                            <div class="activity">Dinner near hotel</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 3 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 3</span>
+                        <span class="day-title">Relaxed Waiting Day</span>
+                        <span class="day-date">April 17</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌅 Morning</div>
+                            <div class="activity">Hotel rest and relaxation</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon</div>
+                            <div class="activity"><strong>Xidan Commercial District</strong> - Shopping and mall lunch</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🏛️ Afternoon</div>
+                            <div class="activity">Hotel rest, prepare for reunion</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌙 Evening</div>
+                            <div class="activity">Wait for your arrival at hotel (CZ636 flight)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHASE 2: COUPLE TRAVEL TOGETHER -->
+        <section class="phase-2">
+            <div class="phase-header">💕 Phase 2: Couple Travel Together (April 17-22)</div>
+
+            <div class="day-cards">
+                <!-- DAY 1 (Reunion) -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 1</span>
+                        <span class="day-title">Reunion Day</span>
+                        <span class="day-date">April 17</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌤️ Afternoon</div>
+                            <div class="activity">You arrive in Beijing, meet at hotel</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌆 Evening</div>
+                            <div class="activity"><strong>Sanlitun</strong> - Celebrate reunion together</div>
+                            <div class="activity">Budget restaurant or mall food court dinner</div>
+                            <div class="activity"><strong>Liangma River</strong> - Free night walk, enjoy city views</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 2 (Forbidden City) -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 2</span>
+                        <span class="day-title">Forbidden City Day</span>
+                        <span class="day-date">April 18</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌅 Morning</div>
+                            <div class="activity">Wake up naturally, leisurely breakfast</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon & Afternoon</div>
+                            <div class="activity"><strong>Forbidden City (Palace Museum)</strong> - Visit together</div>
+                            <div class="activity">📌 Book tickets 7 days in advance (WeChat mini-program "Palace Museum")</div>
+                            <div class="activity">Free visit at your own pace, 2-3 hours is sufficient</div>
+                            <div class="activity"><strong>Jingshan Park</strong> - View Forbidden City panorama from hilltop</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌙 Evening</div>
+                            <div class="activity">Return to hotel to rest</div>
+                            <div class="activity">Dinner near hotel</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 3 (Photography) -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 3</span>
+                        <span class="day-title">Photography Day</span>
+                        <span class="day-date">April 19</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">📸 Morning (2-3 hours)</div>
+                            <div class="activity"><strong>Temple of Heaven Park Photography</strong> - Professional photographer follow-up shooting</div>
+                            <div class="activity">Service: <em>Beijing Travel Photography Forbidden City Ancient Costume Temple of Heaven Beihai Follow-up</em></div>
+                            <div class="activity">📌 Booking link: <a href="https://a.feizhu.com/0QMff3" class="activity-link">Click to book photography</a></div>
+                            <div class="activity">Classic scenes: Hall of Prayer for Good Harvests, ancient cypress forest</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon</div>
+                            <div class="activity">Budget lunch near Temple of Heaven</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🏛️ Afternoon</div>
+                            <div class="activity"><strong>Temple of Heaven Park</strong> - Continue free visit and exploration</div>
+                            <div class="activity">Photography and sightseeing, 2-3 hours</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌙 Evening</div>
+                            <div class="activity">Return to hotel to rest</div>
+                            <div class="activity">Review and enjoy photos taken that day</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 4 (Cherry Blossoms) -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 4</span>
+                        <span class="day-title">Cherry Blossom Leisure Day</span>
+                        <span class="day-date">April 20</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌅 Morning</div>
+                            <div class="activity">Wake up naturally, leisurely breakfast</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon & Afternoon</div>
+                            <div class="activity"><strong>Yuyuantan Park</strong> - Cherry blossom viewing (budget ticket)</div>
+                            <div class="activity">🌸 Walking, photography, boating (optional)</div>
+                            <div class="activity">Duration: 2-3 hours at relaxed pace</div>
+                            <div class="activity">Rest in park or nearby café</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌆 Evening</div>
+                            <div class="activity"><strong>Xidan</strong> - Shopping and relaxation</div>
+                            <div class="activity">Mall food court dinner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 5 (Hutong Romance) -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 5</span>
+                        <span class="day-title">Hutong Romance Day</span>
+                        <span class="day-date">April 21</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌅 Morning</div>
+                            <div class="activity"><strong>Nanluoguxiang</strong> - Hutong stroll (FREE)</div>
+                            <div class="activity">Browse small shops, drink coffee, explore narrow alleyways</div>
+                            <div class="activity">Duration: Flexible, go at your own pace</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon</div>
+                            <div class="activity">Budget snacks and lunch in hutong</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🏛️ Afternoon</div>
+                            <div class="activity"><strong>Beihai Park</strong> - Boating and flower viewing (budget ticket)</div>
+                            <div class="activity">🚤 Electric boat ride, relaxing and not tiring</div>
+                            <div class="activity">Enjoy spring flowers, duration: 1-2 hours</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌆 Evening</div>
+                            <div class="activity"><strong>Shichahai</strong> - Walk to watch sunset (FREE)</div>
+                            <div class="activity">Romantic atmosphere by the water</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌙 Night</div>
+                            <div class="activity">Budget romantic dinner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAY 6 (Departure) -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">Day 6</span>
+                        <span class="day-title">Departure Day</span>
+                        <span class="day-date">April 22</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="time-section">
+                            <div class="time-label">🌅 Morning</div>
+                            <div class="activity">Free activity - choose from:</div>
+                            <div class="activity">• <strong>Yonghe Temple (Lama Temple)</strong> - If interested in Buddhist culture</div>
+                            <div class="activity">• Hotel rest and final relaxation</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">☀️ Noon</div>
+                            <div class="activity">Taste budget Beijing roast duck (classic farewell meal)</div>
+                        </div>
+                        <div class="time-section">
+                            <div class="time-label">🌤️ Afternoon</div>
+                            <div class="activity">Go to airport, CA1345 flight to Sanya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTOGRAPHY SECTION -->
+        <section class="photography-section">
+            <h2 class="section-title">📸 Professional Photography Arrangement</h2>
+            <p class="section-subtitle">Capture your Beijing memories with professional guidance</p>
+
+            <div class="photography-grid">
+                <div class="photo-info-card">
+                    <h4>📋 Service Details</h4>
+                    <ul class="photo-list">
+                        <li><strong>Package:</strong> Temple of Heaven Park follow-up shooting (basic)</li>
+                        <li><strong>Date:</strong> April 19 morning</li>
+                        <li><strong>Duration:</strong> 2-3 hours</li>
+                        <li><strong>Location:</strong> Temple of Heaven Park</li>
+                    </ul>
+                </div>
+
+                <div class="photo-info-card">
+                    <h4>🎬 Shooting Locations</h4>
+                    <ul class="photo-list">
+                        <li>Hall of Prayer for Good Harvests</li>
+                        <li>Echo Wall</li>
+                        <li>Ancient cypress forest</li>
+                        <li>Park pathways and gardens</li>
+                    </ul>
+                </div>
+
+                <div class="photo-info-card">
+                    <h4>📸 What's Included</h4>
+                    <ul class="photo-list">
+                        <li>Professional photographer guidance</li>
+                        <li>Natural candid shots</li>
+                        <li>Posed couple photos</li>
+                        <li>Post-processing & editing</li>
+                    </ul>
+                </div>
+
+                <div class="photo-info-card">
+                    <h4>👗 Preparation Tips</h4>
+                    <ul class="photo-list">
+                        <li>Bring 2-3 coordinated outfit sets</li>
+                        <li>Small props (bouquets, etc.)</li>
+                        <li>Rest well the day before</li>
+                        <li>Share style preferences with photographer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="https://a.feizhu.com/0QMff3" class="btn btn-primary" style="display: inline-block; margin-top: 25px;">Book Photography Service</a>
+        </section>
+
+        <!-- SPRING FEATURES SECTION -->
+        <section class="spring-section">
+            <h2 class="section-title">🌸 Beijing Spring Features (Mid-Late April)</h2>
+            <p class="section-subtitle">Perfect timing for flower viewing during your trip</p>
+
+            <h3 style="color: var(--primary-red); margin-top: 30px; margin-bottom: 20px;">Best Flower Viewing Spots</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <div class="feature-name">Yuyuantan Park</div>
+                    <div class="feature-desc">Cherry blossom peak season - stunning pink blooms</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <div class="feature-name">Beihai Park</div>
+                    <div class="feature-desc">Peach blossoms & crabapple flowers - romantic setting</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <div class="feature-name">Jingshan Park</div>
+                    <div class="feature-desc">Peony flowers - classic spring beauty</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <div class="feature-name">Liangma River</div>
+                    <div class="feature-desc">Cherry blossom night views - magical evening atmosphere</div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-red); margin-top: 30px; margin-bottom: 20px;">Weather & Packing</h3>
+            <div class="features-grid" style="margin-top: 20px;">
+                <div class="feature-card">
+                    <div class="feature-icon">🌡️</div>
+                    <div class="feature-name">Temperature Range</div>
+                    <div class="feature-desc">10-20°C with large day-night difference</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👕</div>
+                    <div class="feature-name">Recommended Clothing</div>
+                    <div class="feature-desc">Layered outfits, bring a jacket</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👟</div>
+                    <div class="feature-name">Comfortable Shoes</div>
+                    <div class="feature-desc">Essential for extensive walking</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MONEY SAVING TIPS -->
+        <section class="tips-section">
+            <h2 class="section-title">💚 Money-Saving Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🏨</div>
+                    <div class="tip-title">Budget Hotels</div>
+                    <div class="tip-desc">Under 300 CNY/night (36 CHF) with chain quality guarantee</div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🍜</div>
+                    <div class="tip-title">Dining Smart</div>
+                    <div class="tip-desc">Mall food courts & local snack shops - tasty & affordable</div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🚇</div>
+                    <div class="tip-title">Subway Passes</div>
+                    <div class="tip-desc">Cheapest & most efficient transportation throughout Beijing</div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎫</div>
+                    <div class="tip-title">Selective Tickets</div>
+                    <div class="tip-desc">Only must-see attractions, skip expensive ones</div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🚶</div>
+                    <div class="tip-title">Free Park Walks</div>
+                    <div class="tip-desc">Explore many parks freely - Shichahai, Liangma River, Nanluoguxiang</div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">⏰</div>
+                    <div class="tip-title">Relaxed Schedule</div>
+                    <div class="tip-desc">1-2 activities/day with noon rest - less rushing, less spending</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETAILED BUDGET BREAKDOWN -->
+        <section class="budget-section">
+            <h2 class="section-title">💰 Detailed Budget Breakdown</h2>
+            <p class="section-subtitle">Complete cost analysis for two people (in CHF)</p>
+
+            <div class="budget-grid">
+                <div class="budget-item">
+                    <div class="budget-item-label">🏨 Accommodation (7 nights)</div>
+                    <div class="budget-item-amount">210-252 CHF</div>
+                    <div class="budget-item-desc">250-300 CNY/night × 7 nights</div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 25%;"></div>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div class="budget-item-label">🍽️ Dining (8 days)</div>
+                    <div class="budget-item-amount">288 CHF</div>
+                    <div class="budget-item-desc">150 CNY/person/day × 8 days × 2 people</div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div class="budget-item-label">📸 Photography Service</div>
+                    <div class="budget-item-amount">96-180 CHF</div>
+                    <div class="budget-item-desc">800-1,500 CNY basic package</div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 20%;"></div>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div class="budget-item-label">🎫 Attraction Tickets</div>
+                    <div class="budget-item-amount">24 CHF</div>
+                    <div class="budget-item-desc">Forbidden City, Temple of Heaven, parks, etc.</div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 3%;"></div>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div class="budget-item-label">🚇 Transportation</div>
+                    <div class="budget-item-amount">60 CHF</div>
+                    <div class="budget-item-desc">Subway + occasional ride-hailing</div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 8%;"></div>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div class="budget-item-label">🛍️ Other & Souvenirs</div>
+                    <div class="budget-item-amount">60 CHF</div>
+                    <div class="budget-item-desc">Small souvenirs, miscellaneous</div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 8%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="budget-total">
+                <div class="budget-total-label">TOTAL TRIP COST FOR TWO PEOPLE</div>
+                <div class="budget-total-amount">738-864 CHF</div>
+                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.95;">Includes accommodation, meals, attractions, photography, and transportation</p>
+            </div>
+        </section>
+
+        <!-- RELAXED SCHEDULE FEATURES -->
+        <section>
+            <h2 class="section-title">🎯 Relaxed Trip Features</h2>
+            <div class="overview-grid" style="margin-top: 30px;">
+                <div class="overview-card">
+                    <div class="overview-card-label">⏰ Flexible Pace</div>
+                    <div class="overview-card-value">Max 1-2</div>
+                    <div class="overview-card-desc">Activities per day, maximum</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-label">😴 Daily Rest</div>
+                    <div class="overview-card-value">Noon</div>
+                    <div class="overview-card-desc">Guaranteed rest time</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-label">🔄 Flexible Plans</div>
+                    <div class="overview-card-value">Yes</div>
+                    <div class="overview-card-desc">Adjust anytime, no rush</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-card-label">👥 No Tour Groups</div>
+                    <div class="overview-card-value">Independent</div>
+                    <div class="overview-card-desc">Explore at your own pace</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALTERNATIVE SUGGESTIONS -->
+        <section class="suggestions-section">
+            <h2 class="section-title">🎨 Itinerary Adjustment Suggestions</h2>
+            <p class="section-subtitle">If feeling bored or want to explore more attractions</p>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: var(--primary-red); margin-bottom: 20px;">🏛️ Additional Attractions to Consider</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-item">
+                        <h4>Summer Palace</h4>
+                        <p>More relaxing, beautiful imperial gardens, can take boat tour</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <h4>Old Summer Palace</h4>
+                        <p>Flat walking paths, beautiful historical ruins, free photogenic spots</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <h4>Beijing Zoo</h4>
+                        <p>See pandas, fun relaxing experience, family-friendly atmosphere</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <h4>National Centre for Performing Arts</h4>
+                        <p>Visit stunning architecture, watch cultural performances</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <h4>Solana Blue Harbor</h4>
+                        <p>Modern shopping mall, beautiful lakeside environment, free exploration</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <h4>798 Art District</h4>
+                        <p>Contemporary art galleries, creative atmosphere, free to walk around</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 style="color: var(--secondary-green); margin-bottom: 20px;">💚 Free & Low-Cost Places (Budget-Friendly)</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-item" style="border-left-color: var(--secondary-green);">
+                        <h4>Parks (Almost Free)</h4>
+                        <p>Jingshan 2 CNY, Temple of Heaven 15 CNY, Yuyuantan 10 CNY</p>
+                    </div>
+                    <div class="suggestion-item" style="border-left-color: var(--secondary-green);">
+                        <h4>Walking Routes (FREE)</h4>
+                        <p>Shichahai, Liangma River, Nanluoguxiang, Wangfujing</p>
+                    </div>
+                    <div class="suggestion-item" style="border-left-color: var(--secondary-green);">
+                        <h4>Cultural Venues (Free)</h4>
+                        <p>National Museum of China, 798 Art District, architecture tours</p>
+                    </div>
+                    <div class="suggestion-item" style="border-left-color: var(--secondary-green);">
+                        <h4>Shopping (Just Browse)</h4>
+                        <p>Wangfujing Pedestrian Street, Xidan, no purchase necessary</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICAL INFORMATION -->
+        <section style="background: var(--card-bg); padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid var(--border-light);">
+            <h2 class="section-title">ℹ️ Practical Information</h2>
+
+            <h3 style="color: var(--primary-red); margin-top: 30px; margin-bottom: 15px;">🎫 Ticket Booking Tips</h3>
+            <ul style="margin-left: 20px; line-height: 2; color: var(--text-light);">
+                <li><strong>Forbidden City:</strong> Requires booking 7 days in advance via WeChat mini-program "Palace Museum"</li>
+                <li><strong>Other Attractions:</strong> Can be purchased on the day or in advance</li>
+                <li><strong>Weekend Peak Periods:</strong> Recommend visiting weekdays when possible</li>
+            </ul>
+
+            <h3 style="color: var(--primary-red); margin-top: 30px; margin-bottom: 15px;">🔗 Confirmed Bookable Services</h3>
+            <ul style="margin-left: 20px; line-height: 2; color: var(--text-light);">
+                <li><strong>Hotels:</strong> Home Inn·neo-Beijing Shichahai Gulou Jiaodaokou Store (under 300 CNY/night)</li>
+                <li><strong>Photography:</strong> Beijing Travel Photography - Temple of Heaven, Forbidden City, Beihai services</li>
+                <li><strong>Attraction Tickets:</strong> All attractions can be purchased on the day or advance</li>
+            </ul>
+
+            <h3 style="color: var(--primary-red); margin-top: 30px; margin-bottom: 15px;">💱 Currency Conversion</h3>
+            <p style="background: linear-gradient(135deg, #E8F5F0, #F0F8F4); padding: 20px; border-left: 4px solid var(--secondary-green); border-radius: 6px; font-weight: 600; color: var(--text-dark);">
+                1 CNY ≈ 0.12 CHF (Swiss Franc)<br/>
+                <span style="font-size: 0.9rem; font-weight: 400; margin-top: 10px; display: block;">Use this rate for quick conversion calculations</span>
+            </p>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Beijing Economy Relax Travel</h3>
+        <p>A professional travel guide for couples seeking an authentic, budget-friendly Beijing experience with spring flowers and professional memories.</p>
+
+        <div class="currency-note">
+            <strong>💡 Quick Planning Tip:</strong> Book your hotel and photography service at least 1 week in advance. Forbidden City tickets require 7 days advance booking. Everything else can be arranged flexibly during your trip.
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+            Document Version 1.0 | April 2026<br/>
+            For questions or modifications, contact your travel coordinator
+        </p>
+    </footer>
+
+</div>
+
+<script>
+async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+async function checkPassword() {
+    const input = document.getElementById('password-input');
+    const hash = await sha256(input.value);
+    if (hash === '019291512454ccc8af026e4ba6996de5f12d55588ad7b095e4fca3f7bd9cde6a') {
+        document.getElementById('lock-screen').classList.add('unlocked');
+        document.getElementById('main-content').classList.add('visible');
+        setTimeout(() => { document.getElementById('lock-screen').remove(); }, 600);
+    } else {
+        input.classList.add('shake');
+        document.getElementById('lock-error').textContent = 'Incorrect password, please try again';
+        setTimeout(() => input.classList.remove('shake'), 500);
+        input.value = '';
+        input.focus();
+    }
+    return false;
+}
+document.getElementById('lock-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    checkPassword();
+});
+</script>
+</body>
+</html>
