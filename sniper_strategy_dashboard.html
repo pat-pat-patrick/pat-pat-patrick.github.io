@@ -67,6 +67,67 @@
   .event-item .ev-signals { font-size:22px; font-weight:700; color:var(--gold); }
 
   .section-divider { border:none; border-top:1px solid var(--border); margin:36px 0; }
+
+  /* ═══ Portrait / Narrow Screen Responsive ═══ */
+  @media (max-width: 900px) {
+    body { padding:16px; }
+    h1 { font-size:22px; }
+    .subtitle { font-size:12px; margin-bottom:20px; }
+    .panel-title { font-size:17px; margin-bottom:14px; }
+
+    /* Stack all grids to single column */
+    .grid2, .grid3 { grid-template-columns:1fr; gap:14px; }
+
+    /* KPI row: 2×2 grid instead of 4 across */
+    .stat-row { flex-wrap:wrap; gap:10px; }
+    .stat-box { flex:1 1 calc(50% - 10px); min-width:0; padding:12px 8px; }
+    .stat-box .val { font-size:22px; }
+    .stat-box .label { font-size:9px; letter-spacing:0.5px; }
+
+    /* Cards breathe */
+    .card { padding:16px; border-radius:10px; }
+
+    /* Timeline bar: taller for readability */
+    .timeline-bar { height:auto; min-height:56px; flex-wrap:wrap; border-radius:8px; }
+    .tl-seg { padding:8px 4px; min-height:48px; }
+    .tl-labels { flex-wrap:wrap; gap:4px; justify-content:center; text-align:center; }
+
+    /* Callouts */
+    .callout { font-size:12px; padding:10px 12px; }
+
+    /* Table */
+    th, td { padding:8px 6px; font-size:11px; }
+    th { font-size:10px; }
+
+    .section-divider { margin:24px 0; }
+  }
+
+  /* Extra-narrow phones (< 480px) */
+  @media (max-width: 480px) {
+    body { padding:12px; }
+    h1 { font-size:19px; }
+
+    /* KPI: still 2×2 but tighter */
+    .stat-box { padding:10px 6px; }
+    .stat-box .val { font-size:18px; }
+
+    /* Timeline: fully stack segments vertically */
+    .timeline-bar { flex-direction:column; height:auto; }
+    .tl-seg { width:100%; min-height:44px; padding:10px 8px; }
+
+    /* Pie chart: constrain */
+    .chart-wrap { max-width:100%!important; }
+
+    /* Event timeline */
+    .event-item .ev-signals { font-size:18px; }
+    .event-item .ev-label { font-size:13px; }
+  }
+
+  /* Landscape tablet tweaks (600–900px) */
+  @media (min-width: 600px) and (max-width: 900px) {
+    .grid3 { grid-template-columns:1fr 1fr; }
+    .grid3 > :last-child { grid-column: 1 / -1; }
+  }
 </style>
 </head>
 <body>
