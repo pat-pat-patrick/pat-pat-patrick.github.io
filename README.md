@@ -11,7 +11,6 @@ Table of Contents
 *   [Deployment](#deployment)
 *   [Posts](#posts)
 *   [Disqus Comments](#DisqusComments)
-*   [Instagram](#instagram)
 *   [Google Analytics](#GoogleAnalytics)
 *   [Update favicon](#UpdateFavicon)
 *   [Credits](#Credits)
@@ -35,7 +34,6 @@ Table of Contents
 
 * Supports Disqus Comments
 
-* Instagram Feed
 
 * Ionicons Icons
 
@@ -101,35 +99,6 @@ And also check [Disqus troubleshooting guide](https://help.disqus.com/customer/p
 
 * * *
 
-### Instagram
-
-The Instagram feed is working using [Instafeed.js](http://instafeedjs.com/) to show the photos.
-
-First, you will need to get your account `userId` and `accessToken` from the following URLs:
-
-*   userId: [http://codeofaninja.com/tools/find-instagram-user-id/](http://codeofaninja.com/tools/find-instagram-user-id/)
-*   accessToken: [instagram.pixelunion.net](http://instagram.pixelunion.net/)
-
-Second, open the `js/common.js` file and replace the `userId` and `accessToken` values.
-
-    var instagramFeed = new Instafeed({
-          get: 'user',
-          limit: 6,
-          resolution: 'standard_resolution',
-          userId: '8987997106',
-          accessToken: '8987997106.924f677.8555ecbd52584f41b9b22ec1a16dafb9',
-          template: ''
-    });
-
-
-Third, open the `_data/settings.yml` file and replace the `instafeed: false` on `instafeed: true` value.
-
-    # Instagram Feed
-    instafeed: false # To enable the instafeed, use the value true. To turn off use the value false.
-
-
-* * *
-
 ### Google Analytics
 
 To integrate Google Analytics, open `_data/settings.yml`, and add your Google Analytics identifier.
@@ -154,7 +123,6 @@ I have used the following scripts, fonts or other files as listed.
 *   [Ionicons Icons](https://ionicons.com/)
 *   [FitVids.js](http://fitvidsjs.com/)
 *   [Medium’s Image Zoom](https://github.com/fat/zoom.js)
-*   [Instafeed.js](http://instafeedjs.com/)
 *   [jQuery.com](https://jquery.com/)
 *   Preview Images form [unsplash.com](https://unsplash.com/), [pexels.com](https://www.pexels.com/)
 
