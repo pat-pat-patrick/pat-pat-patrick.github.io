@@ -41,6 +41,50 @@ Pages，这条线就断了。
 - **IPv6**：机器上没有全局 IPv6 地址时，`listen [::]` 会让 nginx 直接起不
   来，所以这些行会被自动注释掉；有 IPv6 就保留。
 
+## 在哪台机器上跑
+
+三个脚本里**只有 `deploy.sh` 在你本地跑**,另外两个是在 VPS 上执行的 Linux
+脚本,和你用 Mac 还是 Windows 无关。
+
+**用 Mac。** 两个原因:
+
+1. `arm-vps` 这个 SSH 别名在 `~/.ssh/config` 里,Mac 上配过。确认一下:
+   ```bash
+   grep -A4 'Host arm-vps' ~/.ssh/config
+   ```
+   如果想在别的机器上跑,要么把这段配置复制过去,要么直接传地址:
+   ```bash
+   SSH_HOST=ubuntu@<VPS_IP> ./deploy/deploy.sh
+   ```
+2. Mac 自带 `ssh` 和 `rsync`,Windows 两者都缺。
+
+Mac 上还需要 Ruby 和 Jekyll(系统自带的 Ruby 2.6 太旧,Jekyll 要 2.7+):
+
+```bash
+brew install ruby
+gem install jekyll bundler
+# 或者在仓库目录里:  bundle install
+```
+
+`deploy.sh` 开头会先检查 `ssh`/`rsync`/`jekyll` 是否就位,缺了直接报出来,
+不会跑到一半才失败。
+
+### macOS 的两个坑(脚本已经处理)
+
+- **`mktemp -d`**:BSD 版不接受不带模板的 `-d`,所以脚本用的是
+  `mktemp -d "${TMPDIR:-/tmp}/patpatpatrick-build.XXXXXX"`,GNU 和 BSD 都认。
+- **`rsync --link-dest`**:macOS 15 (Sequoia) 把 rsync 换成了 openrsync,没有
+  这个选项。脚本会检测,没有就退化成完整拷贝——多占点磁盘,结果一样,不会报错。
+  想要硬链接省空间可以 `brew install rsync` 用 3.x 版。
+
+### 如果一定要在 Windows 上跑
+
+- **Git Bash**:不行,没有 `rsync`。
+- **WSL2**:可以,但要在 WSL 里重新配 `~/.ssh/config` 的 `arm-vps`(Windows 侧
+  的配置 WSL 读不到)、装 `ruby`/`jekyll`,私钥也得放进 WSL。
+
+不如直接用 Mac。
+
 ## 迁移步骤
 
 **顺序很重要**：整个过程中站点一直在线，直到最后一步才关掉 GitHub Pages。
